@@ -5,9 +5,10 @@ import {
   Delete,
   Get,
   Param,
+  ParseEnumPipe,
+  ParseUUIDPipe,
   Post,
   Put,
-  ParseIntPipe,
 } from '@nestjs/common';
 
 //* SERVICE
@@ -26,30 +27,31 @@ export class AppController {
   }
 
   @Get()
-  getAll(@Param('type') type: ReportType): object {
+  getAll(
+    @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
+  ): object {
     return this.appService.getAllInComeReport(type);
   }
   @Get(':id')
   getById(
-    @Param('type') type: ReportType,
-    @Param('id', ParseIntPipe) id: string,
+    @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
+    @Param('id', ParseUUIDPipe) id: string,
   ) {
-    console.log(id, typeof id);
     return this.appService.getDetailInComeReport(id, type);
   }
 
   @Post('/create')
   create(
     @Body() { amount, source }: { amount: number; source: string },
-    @Param('type') type: ReportType,
+    @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
   ) {
     return this.appService.createInComeReport(type, { amount, source });
   }
 
   @Put(':id')
   update(
-    @Param('type') type: ReportType,
-    @Param('id') id: string,
+    @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
+    @Param('id', ParseUUIDPipe) id: string,
     @Body() body: { amount: number; source: string },
   ) {
     return this.appService.putInComeReport(type, id, body);
