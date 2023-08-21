@@ -1,39 +1,55 @@
+//* NESTJS
 import { Injectable } from '@nestjs/common';
-import { v4 as uuid } from 'uuid';
-import { ReportType, data } from './data';
 
+//* LIBRARY
+import { v4 as uuid } from 'uuid';
+
+//* DATA
+import { ReportType, data } from './data';
+import { ReportResponseDto } from './dtos/report.dto';
+
+interface CreateReport {
+  amount: number;
+  source: string;
+}
+
+interface UpdateReport {
+  amount?: number;
+  source?: string;
+}
 @Injectable()
 export class AppService {
   getHello(): string {
     return 'Hello World!';
   }
   // Get All
-  getAllInComeReport(type: ReportType) {
+  getAllInComeReport(type: ReportType): ReportResponseDto[] {
     const reportType =
       type === 'income' ? ReportType.INCOME : ReportType.EXPENSE;
 
-    const resultData: object = data.report.filter(
-      (rp) => rp.type === reportType,
-    );
-    return resultData;
+    return data.report
+      .filter((rp) => rp.type === reportType)
+      .map((item) => new ReportResponseDto(item));
   }
 
   // Get Detail
-  getDetailInComeReport(id: string, type: ReportType) {
+  getDetailInComeReport(id: string, type: ReportType): ReportResponseDto {
     const reportType =
       type === 'income' ? ReportType.INCOME : ReportType.EXPENSE;
-
-    const resultData: object = data.report
+    const reportDetail = data.report
       .filter((rp) => rp.type === reportType)
       .find((r) => r.id === id);
-    return resultData;
+
+    if (!reportDetail) return;
+
+    return new ReportResponseDto(reportDetail);
   }
 
   // Create
   createInComeReport(
     type: ReportType,
-    { amount, source }: { amount: number; source: string },
-  ) {
+    { amount, source }: CreateReport,
+  ): ReportResponseDto {
     const newReport = {
       id: uuid(),
       source,
@@ -43,16 +59,18 @@ export class AppService {
       type: type === 'income' ? ReportType.INCOME : ReportType.EXPENSE,
     };
 
+    if (!newReport) return;
+
     data.report.push(newReport);
-    return data.report;
+    return new ReportResponseDto(newReport);
   }
 
   // Update
   putInComeReport(
     type: ReportType,
     id: string,
-    body: { amount: number; source: string },
-  ) {
+    body: UpdateReport,
+  ): ReportResponseDto {
     const reportType =
       type === 'income' ? ReportType.INCOME : ReportType.EXPENSE;
 
@@ -68,7 +86,7 @@ export class AppService {
       ...data.report[reportIndex],
       ...body,
     };
-    return data.report[reportIndex];
+    return new ReportResponseDto(data.report[reportIndex]);
   }
 
   // Delete
@@ -76,7 +94,6 @@ export class AppService {
     const reportIndex = data.report.findIndex((rp) => rp.id === id);
     if (reportIndex === -1) return;
 
-    data.report.splice(reportIndex, 1);
-    return data.report;
+    return data.report.splice(reportIndex, 1);
   }
 }
