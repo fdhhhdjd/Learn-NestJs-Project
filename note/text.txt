@@ -1,1 +1,0 @@
-1. ParseIntPipe: convert to the integer, if convert fail return error (Chuyển đổi số nguyên nếu nó không ép kiểu được trả thẳng về lỗi).
