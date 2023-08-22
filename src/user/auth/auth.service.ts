@@ -1,5 +1,5 @@
 //* NESTJS
-import { ConflictException, Injectable } from '@nestjs/common';
+import { ConflictException, Injectable, HttpException } from '@nestjs/common';
 
 //* PRISMA
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -17,9 +17,14 @@ interface SignupParams {
   phone: string;
 }
 
+interface SigninParams {
+  email: string;
+  password: string;
+}
 @Injectable()
 export class AuthService {
   constructor(private readonly PrismaService: PrismaService) {}
+
   async signup({ email, name, phone, password }: SignupParams) {
     const userExits = await this.PrismaService.user.findUnique({
       where: {
@@ -42,16 +47,43 @@ export class AuthService {
     };
     const user = await this.PrismaService.user.create({ data });
 
-    const token = await jwt.sign(
+    const token = await this.generateJWT(user.name, user.id);
+    return token;
+  }
+  async signin({ email, password }: SigninParams) {
+    const userExits = await this.PrismaService.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    if (!userExits) {
+      throw new HttpException('Invalid credentials', 400);
+    }
+
+    const hashedPassword = await userExits.password;
+
+    const isValidPassword = await bcrypt.compare(password, hashedPassword);
+
+    if (!isValidPassword) {
+      throw new HttpException('Invalid credentials', 400);
+    }
+
+    const token = await this.generateJWT(userExits.name, userExits.id);
+
+    return token;
+  }
+
+  async generateJWT(name: string, id: number) {
+    return await jwt.sign(
       {
         name,
-        id: user.id,
+        id,
       },
       process.env.JSON_TOKEN_KEY,
       {
         expiresIn: 3600000,
       },
     );
-    return token;
   }
 }
