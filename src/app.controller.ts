@@ -1,4 +1,4 @@
-//* LIBRARY
+//* NESTJS
 import {
   Body,
   Controller,
@@ -17,6 +17,13 @@ import { AppService } from './app.service';
 //* DATA
 import { ReportType } from './data';
 
+//* DTOS
+import {
+  CreateReportDto,
+  ReportResponseDto,
+  UpdateReportDto,
+} from './dtos/report.dto';
+
 @Controller('/report/:type')
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -29,22 +36,23 @@ export class AppController {
   @Get()
   getAll(
     @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
-  ): object {
+  ): ReportResponseDto[] {
     return this.appService.getAllInComeReport(type);
   }
+
   @Get(':id')
   getById(
     @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
     @Param('id', ParseUUIDPipe) id: string,
-  ) {
+  ): ReportResponseDto {
     return this.appService.getDetailInComeReport(id, type);
   }
 
   @Post('/create')
   create(
-    @Body() { amount, source }: { amount: number; source: string },
+    @Body() { amount, source }: CreateReportDto,
     @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
-  ) {
+  ): ReportResponseDto {
     return this.appService.createInComeReport(type, { amount, source });
   }
 
@@ -52,8 +60,8 @@ export class AppController {
   update(
     @Param('type', new ParseEnumPipe(ReportType)) type: ReportType,
     @Param('id', ParseUUIDPipe) id: string,
-    @Body() body: { amount: number; source: string },
-  ) {
+    @Body() body: UpdateReportDto,
+  ): ReportResponseDto {
     return this.appService.putInComeReport(type, id, body);
   }
 
