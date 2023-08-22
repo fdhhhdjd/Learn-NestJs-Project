@@ -10,9 +10,11 @@ import { AppService } from './app.service';
 // import { CustomInterceptor } from './custom.interceptor';
 import { SummaryModule } from './summary/summary.module';
 import { ReportModule } from './report/report.module';
+import { UserModule } from './user/user.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [SummaryModule, ReportModule],
+  imports: [SummaryModule, ReportModule, UserModule, PrismaModule],
   controllers: [AppController],
   providers: [
     AppService,

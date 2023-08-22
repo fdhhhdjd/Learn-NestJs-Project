@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  ###! Postgresql ###
+  postgresql:
+    container_name: learn-nestJs
+    image: postgres:12
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      POSTGRES_DB: '${POSTGRES_DB}'
+      POSTGRES_USER: '${POSTGRES_USER}'
+      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
+    ports:
+      - ${POSTGRES_PORT_MAPPING}:${POSTGRES_PORT}
+    env_file:
+      - .env
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          "sh -c 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}'",
+        ]
+      interval: 10s
+      timeout: 3s
+      retries: 3
