@@ -8,7 +8,7 @@ import { v4 as uuid } from 'uuid';
 import { ReportType, data } from 'src/data';
 
 //* DTOS
-import { ReportResponseDto } from 'src/dtos/report.dto';
+import { ReportResponseDto } from 'src/report/dtos/report.dto';
 
 interface CreateReport {
   amount: number;
