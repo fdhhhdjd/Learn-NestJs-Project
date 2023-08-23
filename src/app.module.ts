@@ -1,6 +1,6 @@
 //* NESTJS
 import { Module } from '@nestjs/common';
-import { APP_INTERCEPTOR } from '@nestjs/core';
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 
 //* APP
 import { AppController } from './app.controller';
@@ -22,6 +22,7 @@ import { UserInterceptor } from './user/interceptors/user.interceptor';
 
 //* PRISMA
 import { PrismaModule } from './prisma/prisma.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @Module({
   imports: [SummaryModule, ReportModule, UserModule, PrismaModule, HomeModule],
@@ -32,6 +33,10 @@ import { PrismaModule } from './prisma/prisma.module';
       provide: APP_INTERCEPTOR,
       // useClass: ClassSerializerInterceptor,
       useClass: UserInterceptor,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
     },
   ],
 })
