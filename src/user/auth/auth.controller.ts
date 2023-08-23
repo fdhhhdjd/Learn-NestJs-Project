@@ -6,6 +6,7 @@ import {
   Param,
   ParseEnumPipe,
   UnauthorizedException,
+  Get,
 } from '@nestjs/common';
 
 //* LIBRARY
@@ -17,6 +18,7 @@ import { AuthService } from './auth.service';
 //* DTOS
 import { UserType } from '@prisma/client';
 import { GenerateProductKeyDto, SigninDto, SignupDto } from '../dtos/auth.dto';
+import { User, UserInfo } from '../decorators/user.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -56,5 +58,10 @@ export class AuthController {
   @Post('key')
   generateProductKey(@Body() { email, userType }: GenerateProductKeyDto) {
     return this.authService.generateProductKey(email, userType);
+  }
+
+  @Get('me')
+  getProfile(@User() user: UserInfo) {
+    return this.authService.getProfile(user.id);
   }
 }
