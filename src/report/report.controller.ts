@@ -19,7 +19,7 @@ import {
   CreateReportDto,
   ReportResponseDto,
   UpdateReportDto,
-} from '../dtos/report.dto';
+} from './dtos/report.dto';
 
 //* APP
 import { ReportService } from './report.service';
