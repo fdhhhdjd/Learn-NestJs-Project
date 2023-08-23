@@ -1,5 +1,5 @@
 //* LIBRARY
-import { PropertyType } from '@prisma/client';
+import { PropertyType, UserType } from '@prisma/client';
 
 //* DTOS
 import { CreateHomeDto, HomeResponseDto, UpdateHomeDto } from './dtos/home.dto';
@@ -21,6 +21,7 @@ import {
 } from '@nestjs/common';
 
 //* DECORATOR
+import { Roles } from 'src/decorators/role.decorator';
 import { User, UserInfo } from 'src/user/decorators/user.decorator';
 
 @Controller('home')
@@ -55,6 +56,8 @@ export class HomeController {
     return this.homeService.getHomeId(id);
   }
 
+  @Roles(UserType.REALTOR, UserType.ADMIN)
+  // @UseGuards(AuthGuard)
   @Post('create')
   createHome(
     @Body() body: CreateHomeDto,
@@ -63,13 +66,15 @@ export class HomeController {
     return this.homeService.createHome(body, user.id);
   }
 
+  @Roles(UserType.REALTOR, UserType.ADMIN)
+  // @UseGuards(AuthGuard)
   @Put(':id')
   async updateHome(
     @Param('id') id: number,
     @Body() body: UpdateHomeDto,
     @User() user: UserInfo,
   ): Promise<HomeResponseDto> {
-    const realtor = await this.homeService.getRealtorByHomeId(user.id);
+    const realtor = await this.homeService.getRealtorByHomeId(id);
 
     if (realtor.id !== user.id) {
       throw new UnauthorizedException();
@@ -78,6 +83,8 @@ export class HomeController {
     return this.homeService.updateHome(id, body);
   }
 
+  @Roles(UserType.REALTOR, UserType.ADMIN)
+  // @UseGuards(AuthGuard)
   @Delete(':id')
   async deleteHome(
     @Param('id') id: number,
