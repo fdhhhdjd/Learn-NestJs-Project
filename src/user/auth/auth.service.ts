@@ -95,4 +95,18 @@ export class AuthService {
 
     return bcrypt.hash(string, 10);
   }
+
+  async getProfile(id: number) {
+    const userInfo = await this.PrismaService.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!userInfo) {
+      throw new HttpException('Invalid credentials', 400);
+    }
+
+    return userInfo;
+  }
 }

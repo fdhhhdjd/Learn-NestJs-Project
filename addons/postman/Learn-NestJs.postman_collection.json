@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "12f38ec9-9312-4b57-a956-e9803dcd1dc8",
+		"name": "Learn-NestJs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17440086",
+		"_collection_link": "https://nguyentientai.postman.co/workspace/Study-FullStack~20ff2576-2820-446f-ba8d-6ba798c3cdc9/collection/17440086-12f38ec9-9312-4b57-a956-e9803dcd1dc8?action=share&source=collection_link&creator=17440086"
+	},
+	"item": [
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/report/income",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/report/income/d7b9b977-6f55-424d-a39f-9bd061b6b30d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"d7b9b977-6f55-424d-a39f-9bd061b6b30d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source\":\"TaiDev\",\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/report/income/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source\":\"Tai Dev\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/report/income/7c0d4161-538b-4f85-bea2-c7f6c9ad08e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"7c0d4161-538b-4f85-bea2-c7f6c9ad08e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/report/income/d7b9b977-6f55-424d-a39f-9bd061b6b30d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"d7b9b977-6f55-424d-a39f-9bd061b6b30d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Summary",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/summary",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/report/income/d7b9b977-6f55-424d-a39f-9bd061b6b30d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"d7b9b977-6f55-424d-a39f-9bd061b6b30d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source\":\"TaiDev\",\n    \"amount\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/report/income/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source\":\"Tai Dev\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/report/income/7c0d4161-538b-4f85-bea2-c7f6c9ad08e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"7c0d4161-538b-4f85-bea2-c7f6c9ad08e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/report/income/d7b9b977-6f55-424d-a39f-9bd061b6b30d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"report",
+								"income",
+								"d7b9b977-6f55-424d-a39f-9bd061b6b30d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"TaiDev\",\n    \"phone\": \"0798805743\",\n    \"email\":\"nguyentientai7@gmail.com\",\n    \"password\":\"Taiheo123@\",\n    \"productKey\":\"$2a$10$RtOj7.JLgbeqAEK0DyHdD.UFMAyHm9tmke2VaMIQ8O3gOElKXdw9m\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signup/REALTOR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signup",
+								"REALTOR"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"nguyentientai9@gmail.com\",\n    \"password\":\"Taiheo123@\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Key",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"nguyentientai7@gmail.com\",\n    \"userType\":\"REALTOR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/key",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"key"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/auth/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"Nam Mo A Di\",\n    \"number_of_bedrooms\": 1,\n    \"number_of_bathrooms\":1,\n    \"city\":\"Khanh Hoa\",\n    \"land_size\": 3318,\n    \"price\": 1700000,\n    \"property_type\":\"CONDO\",\n    \"image\":[\n        {\n            \"url\":\"img5\"\n        },\n         {\n            \"url\":\"img6\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/home/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"Tran Phu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/home/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"nguyentientai7@gmail.com\",\n    \"userType\":\"REALTOR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/home/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "city",
+								"value": "Nha Trang",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "minPrice",
+								"value": "100000",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "maxPrice",
+								"value": "140000",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "propertyType",
+								"value": "RESIDENTIAL",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/home",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "Nha Trang",
+									"disabled": true
+								},
+								{
+									"key": "minPrice",
+									"value": "1000000",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "1500000",
+									"disabled": true
+								},
+								{
+									"key": "propertyType",
+									"value": "RESIDENTIAL",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"nguyentientai7@gmail.com\",\n    \"userType\":\"REALTOR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/home/2?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
