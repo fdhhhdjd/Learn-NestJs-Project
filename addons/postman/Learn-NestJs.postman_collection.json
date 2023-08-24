@@ -266,11 +266,21 @@
 				{
 					"name": "Register",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjQsImlhdCI6MTY5Mjc4NTEyMSwiZXhwIjoxNjk2Mzg1MTIxfQ.EhZOuqFhAxmd_ixGtN9dO_2IZsYenWUZV6hFZYdQBQU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"TaiDev\",\n    \"phone\": \"0798805743\",\n    \"email\":\"nguyentientai7@gmail.com\",\n    \"password\":\"Taiheo123@\",\n    \"productKey\":\"$2a$10$RtOj7.JLgbeqAEK0DyHdD.UFMAyHm9tmke2VaMIQ8O3gOElKXdw9m\"\n}",
+							"raw": "// {\n//     \"name\":\"TaiDev\",\n//     \"phone\": \"0798805743\",\n//     \"email\":\"nguyentientai7@gmail.com\",\n//     \"password\":\"Taiheo123@\",\n// }\n\n{\n    \"name\":\"TaiDev\",\n    \"phone\": \"0798805744\",\n    \"email\":\"nguyentientai5@gmail.com\",\n    \"password\":\"Taiheo123@\",\n    \"productKey\":\"$2a$10$RtOj7.JLgbeqAEK0DyHdD.UFMAyHm9tmke2VaMIQ8O3gOElKXdw9m\"\n    \n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,7 +288,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/auth/signup/REALTOR",
+							"raw": "http://localhost:5000/auth/signup/BUYER",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -287,7 +297,7 @@
 							"path": [
 								"auth",
 								"signup",
-								"REALTOR"
+								"BUYER"
 							]
 						}
 					},
@@ -335,11 +345,21 @@
 				{
 					"name": "Key",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjQsImlhdCI6MTY5Mjc4NTEyMSwiZXhwIjoxNjk2Mzg1MTIxfQ.EhZOuqFhAxmd_ixGtN9dO_2IZsYenWUZV6hFZYdQBQU",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\":\"nguyentientai7@gmail.com\",\n    \"userType\":\"REALTOR\"\n}",
+							"raw": "{\n    \"email\":\"nguyentientai5@gmail.com\",\n    \"userType\":\"BUYER\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -369,7 +389,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjQsImlhdCI6MTY5Mjg0ODQyNSwiZXhwIjoxNjk2NDQ4NDI1fQ.UCSibp8xwAz9aNwZW46koNdSy0_f8gESayVvNzlARcM",
 									"type": "string"
 								}
 							]
@@ -404,7 +424,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjQsImlhdCI6MTY5Mjc4NDg4NCwiZXhwIjoxNjk2Mzg0ODg0fQ.XiFu66ctPZf6Ew6D32xXGW7V_6mI4VReTpHzDlnUDr4",
 									"type": "string"
 								}
 							]
@@ -413,7 +433,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"address\":\"Nam Mo A Di\",\n    \"number_of_bedrooms\": 1,\n    \"number_of_bathrooms\":1,\n    \"city\":\"Khanh Hoa\",\n    \"land_size\": 3318,\n    \"price\": 1700000,\n    \"property_type\":\"CONDO\",\n    \"image\":[\n        {\n            \"url\":\"img5\"\n        },\n         {\n            \"url\":\"img6\"\n        }\n    ]\n}",
+							"raw": "{\n    \"address\":\"xiu cau\",\n    \"number_of_bedrooms\": 1,\n    \"number_of_bathrooms\":1,\n    \"city\":\"Khanh Hoa\",\n    \"land_size\": 3318,\n    \"price\": 1700000,\n    \"property_type\":\"CONDO\",\n    \"image\":[\n        {\n            \"url\":\"img5\"\n        },\n         {\n            \"url\":\"img6\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -443,7 +463,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjc3ODA5NSwiZXhwIjoxNjk2Mzc4MDk1fQ.HnTAVRI1rNOoybGlatgrXtNUxiYmEFOPReGkOP0uad4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjQsImlhdCI6MTY5Mjc4NTEyMSwiZXhwIjoxNjk2Mzg1MTIxfQ.EhZOuqFhAxmd_ixGtN9dO_2IZsYenWUZV6hFZYdQBQU",
 									"type": "string"
 								}
 							]
@@ -452,7 +472,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"address\":\"Tran Phu\"\n}",
+							"raw": "{\n    \"address\":\"hiuhu\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -460,7 +480,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/home/5",
+							"raw": "http://localhost:5000/home/11",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -468,7 +488,7 @@
 							"port": "5000",
 							"path": [
 								"home",
-								"5"
+								"11"
 							]
 						}
 					},
@@ -624,6 +644,77 @@
 									"key": "",
 									"value": null
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "message",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjUsImlhdCI6MTY5Mjg0NzkzNiwiZXhwIjoxNjk2NDQ3OTM2fQ._xQBdxzs6FRmZpG4FJJtdy9ThMrE7l__d5UuMWCADcc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"I am Developer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/home/inquire/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home",
+								"inquire",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get message by home",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGFpRGV2IiwiaWQiOjIsImlhdCI6MTY5Mjg1MDA1OCwiZXhwIjoxNjk2NDUwMDU4fQ.zXI_3zfgbPM46JUwS6Gd2eXRHjvxBA1h72tlOj-Mxlk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/home/9/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"home",
+								"9",
+								"messages"
 							]
 						}
 					},
