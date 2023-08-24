@@ -2,7 +2,12 @@
 import { PropertyType, UserType } from '@prisma/client';
 
 //* DTOS
-import { CreateHomeDto, HomeResponseDto, UpdateHomeDto } from './dtos/home.dto';
+import {
+  CreateHomeDto,
+  HomeResponseDto,
+  InquireDto,
+  UpdateHomeDto,
+} from './dtos/home.dto';
 
 //* HOME
 import { HomeService } from './home.service';
@@ -96,5 +101,22 @@ export class HomeController {
       throw new UnauthorizedException();
     }
     return this.homeService.deleteHome(id);
+  }
+
+  @Roles(UserType.BUYER)
+  @Post('inquire/:id')
+  async inquire(
+    @Param('id') homeId: number,
+    @User() user: UserInfo,
+
+    @Body() { message }: InquireDto,
+  ) {
+    return this.homeService.inquire(user, homeId, message);
+  }
+
+  @Roles(UserType.REALTOR)
+  @Get(':id/messages')
+  async getHomeMessages(@Param('id') homeId: number, @User() user: UserInfo) {
+    return this.homeService.getMessageByHome(user, homeId);
   }
 }

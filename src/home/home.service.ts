@@ -1,5 +1,9 @@
 //* NESTJS
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 
 //* LIBRARY
 import { PropertyType } from '@prisma/client';
@@ -8,6 +12,7 @@ import { PropertyType } from '@prisma/client';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HomeResponseDto } from './dtos/home.dto';
+import { UserInfo } from 'src/user/decorators/user.decorator';
 
 interface GetHomeParam {
   city?: string;
@@ -220,5 +225,43 @@ export class HomeService {
     }
 
     return realtor.realtor;
+  }
+
+  async inquire(buyer: UserInfo, homeId: number, message: string) {
+    const realtor = await this.getRealtorByHomeId(homeId);
+
+    return await this.PrismaService.message.create({
+      data: {
+        realtor_id: realtor.id,
+        buyer_id: buyer.id,
+        home_id: homeId,
+        message,
+        user_id: buyer.id,
+      },
+    });
+  }
+
+  async getMessageByHome(user: UserInfo, homeId: number) {
+    const realtor = await this.getRealtorByHomeId(homeId);
+
+    if (realtor.id !== user.id) {
+      throw new UnauthorizedException();
+    }
+
+    return this.PrismaService.message.findMany({
+      where: {
+        home_id: homeId,
+      },
+      select: {
+        message: true,
+        buyer: {
+          select: {
+            name: true,
+            phone: true,
+            email: true,
+          },
+        },
+      },
+    });
   }
 }
