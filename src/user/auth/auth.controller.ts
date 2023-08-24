@@ -19,6 +19,7 @@ import { AuthService } from './auth.service';
 import { UserType } from '@prisma/client';
 import { GenerateProductKeyDto, SigninDto, SignupDto } from '../dtos/auth.dto';
 import { User, UserInfo } from '../decorators/user.decorator';
+import { Roles } from 'src/decorators/role.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -55,6 +56,7 @@ export class AuthController {
     return this.authService.signin(body);
   }
 
+  @Roles(UserType.BUYER, UserType.REALTOR, UserType.ADMIN)
   @Post('key')
   generateProductKey(@Body() { email, userType }: GenerateProductKeyDto) {
     return this.authService.generateProductKey(email, userType);
