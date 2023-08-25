@@ -90,7 +90,7 @@ describe('HomeController', () => {
       price: 1700000,
       property_type: PropertyType.CONDO,
     };
-    it('should throw error if realtor did not create home', async () => {
+    it('should throw error if realtor did not create home!', async () => {
       expect(
         controller.updateHome(3, mockCreateHomeParams, mockUserInfo),
       ).rejects.toThrowError(UnauthorizedException);
